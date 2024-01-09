@@ -1,0 +1,10 @@
+xterm*loginshell: true
+xterm*savelines: 1000
+
+xterm*rightScrollBar: true
+xterm*ScrollBar: true
+
+xterm*background: black
+xterm*foreground: white
+xterm*faceName: PxPlus IBM EGA 8x14
+xterm*faceSize: 22
