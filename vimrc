@@ -15,6 +15,7 @@ set cursorline
 
 syntax off
 colorscheme custom
+set hlsearch
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 

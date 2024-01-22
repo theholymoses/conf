@@ -1,7 +1,3 @@
-#
-# ~/.bashrc
-#
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -14,8 +10,16 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
 alias vi='vim'
-alias sxiv='sxiv -fprt'
+alias sxiv='sxiv -fprta'
 alias bshrc='vim ~/.bashrc && source ~/.bashrc'
+
+function pmg {
+  pamixer --get-volume
+}
+function pms {
+  local volume=${1:-"100"}
+  pamixer --set-volume "$volume" --allow-boost
+}
 
 # open man-page via vim
 function vman {
@@ -23,3 +27,4 @@ function vman {
     vim -MR +":Man $@" +"wincmd j" +":q!"
   fi
 }
+
