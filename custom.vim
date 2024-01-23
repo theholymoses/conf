@@ -31,10 +31,7 @@ hi MatchParen term=bold
 hi MatchParen cterm=bold ctermfg=magenta ctermbg=black
 
 hi Search term=bold
-hi Search cterm=bold ctermfg=cyan ctermbg=magenta
-
-hi IncSearch term=bold
-hi IncSearch cterm=bold ctermfg=cyan ctermbg=black
+hi Search cterm=bold ctermfg=black ctermbg=lightcyan
 
 hi WildMenu term=bold
 hi WildMenu cterm=bold ctermfg=black ctermbg=magenta
@@ -54,8 +51,8 @@ hi StatusLineTermNC cterm=bold ctermfg=black ctermbg=lightcyan
 hi Folded term=bold
 hi Folded cterm=bold ctermfg=darkcyan ctermbg=black
 
-hi Visual term=reverse
-hi Visual cterm=reverse ctermfg=cyan ctermbg=black
+hi Visual term=bold
+hi Visual cterm=bold ctermfg=black ctermbg=lightcyan
 
 " ******************** warnings, errors, etc
 hi Question term=bold
