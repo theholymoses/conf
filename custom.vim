@@ -1,7 +1,4 @@
-" Vim color file
-
-" ********************
-
+" ******************** base
 set background=dark
 
 hi clear
@@ -10,11 +7,10 @@ if exists("syntax on")
   syntax reset
 endif
 
-" ********************
 let g:colors_name = "custom"
 
-" ********************
-hi Normal ctermfg=lightGrey ctermbg=black
+" ******************** 
+hi Normal ctermfg=grey ctermbg=black
 hi NonText ctermfg=cyan ctermbg=black
 hi SpecialKey ctermfg=cyan ctermbg=black
 
@@ -35,10 +31,10 @@ hi MatchParen term=bold
 hi MatchParen cterm=bold ctermfg=magenta ctermbg=black
 
 hi Search term=bold
-hi Search cterm=bold ctermfg=green ctermbg=black
+hi Search cterm=bold ctermfg=cyan ctermbg=black
 
 hi IncSearch term=bold
-hi IncSearch cterm=bold ctermfg=green ctermbg=black
+hi IncSearch cterm=bold ctermfg=cyan ctermbg=black
 
 hi WildMenu term=bold
 hi WildMenu cterm=bold ctermfg=black ctermbg=magenta
@@ -51,11 +47,15 @@ hi StatusLine cterm=bold ctermfg=black ctermbg=lightcyan
 
 hi StatusLineTerm term=standout
 hi StatusLineTerm cterm=bold ctermfg=black ctermbg=lightcyan
-hi StatusLineTerm gui=bold guifg=lightcyan guibg=black
 
 hi StatusLineTermNC term=bold
 hi StatusLineTermNC cterm=bold ctermfg=black ctermbg=lightcyan
-hi StatusLineTermNC gui=bold guifg=lightcyan guibg=black
+
+hi Folded term=bold
+hi Folded cterm=bold ctermfg=darkcyan ctermbg=black
+
+hi Visual term=reverse
+hi Visual cterm=reverse ctermfg=cyan ctermbg=black
 
 " ******************** warnings, errors, etc
 hi Question term=bold
