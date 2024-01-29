@@ -1,6 +1,7 @@
-set fileencodings=utf-8,cp1251
+set fileencodings=utf-8
 
 set dir=$HOME/.vim/swapfiles//
+set vdir=$HOME/.vim/views//
 
 set wildmenu
 set number

@@ -12,6 +12,7 @@ alias grep='grep --color=auto'
 alias vi='vim'
 alias sxiv='sxiv -fprta'
 alias bshrc='vim ~/.bashrc && source ~/.bashrc'
+alias sn='shutdown now'
 
 function pmg {
   pamixer --get-volume
