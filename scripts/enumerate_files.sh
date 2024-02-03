@@ -1,7 +1,8 @@
 #! /bin/bash
 
 do_not_do_this=$((255))
-dir_doesnt_exist=$((1))
+no_argument=$((1))
+dir_doesnt_exist=$((2))
 
 function color_none {
   printf "\e[0m"
@@ -14,21 +15,22 @@ function color_cyan {
 }
 
 function enumerate_files_at_path {
-  local path=${1?:"Provide file path"}
-  local self=$(realpath "$0")
-  local counter=$((1))
-
-  if [ ! -d "$path" ]; then
+  if [ -z "$1" ]; then
     color_red
-    echo "$path does not exist"
+    echo "Provide path to directory"
+    color_none
+    exit $no_argument
+  fi
+  if [ ! -d "$1" ]; then
+    color_red
+    echo "Path \"$1\" does not exist"
     color_none
     exit $dir_doesnt_exist
   fi
 
-  color_red
-  echo "DO NOT DO THIS SHIT IF YOU'RE NOT SURE !!!"
-  color_none
-  exit $do_not_do_this
+  local path=$(realpath "$1")
+  local self=$(realpath "$0")
+  local counter=$((1))
 
   for file in "$path"/*; do
     file=$(realpath "$file")
@@ -40,11 +42,17 @@ function enumerate_files_at_path {
         mv "$file" "$new_name"
         echo "${path_no_name}:"
         echo -e "\t${file} -->"
-        echo -e "\t${path_no_name}/${counter}"
+        echo -e "\t$new_name"
       fi
       counter=$((++counter))
     fi
   done
 }
 
+color_red
+echo "DO NOT DO THIS SHIT IF YOU'RE NOT SURE !!!"
+color_none
+exit $do_not_do_this
+
 enumerate_files_at_path $@
+
