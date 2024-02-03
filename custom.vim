@@ -21,8 +21,8 @@ hi LineNr cterm=bold ctermfg=cyan
 hi Cursor term=bold
 hi Cursor cterm=bold
 
-hi CursorLine term=NONE
-hi CursorLine cterm=NONE
+hi CursorLine term=bold
+hi CursorLine cterm=bold
 
 hi CursorLineNr term=bold
 hi CursorLineNr cterm=bold ctermfg=magenta
@@ -31,7 +31,7 @@ hi MatchParen term=bold
 hi MatchParen cterm=bold ctermfg=magenta ctermbg=black
 
 hi Search term=bold
-hi Search cterm=bold ctermfg=black ctermbg=lightcyan
+hi Search cterm=bold ctermbg=black ctermfg=lightcyan
 
 hi WildMenu term=bold
 hi WildMenu cterm=bold ctermfg=black ctermbg=magenta
