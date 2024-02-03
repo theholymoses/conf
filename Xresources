@@ -8,3 +8,7 @@ xterm*background: black
 xterm*foreground: white
 xterm*faceName: PxPlus IBM EGA 8x14
 xterm*faceSize: 22
+
+Sxiv*background: black
+Sxiv*foreground: white
+Sxiv*font: PxPlus IBM EGA 8x14:size=32
