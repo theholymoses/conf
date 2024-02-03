@@ -31,17 +31,18 @@ function enumerate_files_at_path {
   exit $do_not_do_this
 
   for file in "$path"/*; do
-    if [ -f "$file" ] && [ ! "$self" != "$file" ]; then
+    file=$(realpath "$file")
+    if [ -f "$file" ] && [ "$self" != "$file" ]; then
       local path_no_name=$(dirname "$file")
-      local name_no_path=$(basename "$file")
+      local new_name="${path_no_name}/${counter}"
 
-      mv "$file" "${path_no_name}/${counter}"
-      if [ $? -eq 0 ]; then
+      if [ ! -e "$new_name" ]; then
+        mv "$file" "$new_name"
         echo "${path_no_name}:"
         echo -e "\t${file} -->"
         echo -e "\t${path_no_name}/${counter}"
-        counter=$((++counter))
       fi
+      counter=$((++counter))
     fi
   done
 }
