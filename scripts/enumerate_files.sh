@@ -23,7 +23,7 @@ function enumerate_files_at_path {
   fi
   if [ ! -d "$1" ]; then
     color_red
-    echo "Path \"$1\" does not exist"
+    echo "Dir \"$1\" does not exist"
     color_none
     exit $dir_doesnt_exist
   fi
