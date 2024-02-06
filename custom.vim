@@ -21,8 +21,8 @@ hi LineNr cterm=bold ctermfg=cyan
 hi Cursor term=bold
 hi Cursor cterm=bold
 
-hi CursorLine term=bold
-hi CursorLine cterm=bold
+hi CursorLine term=NONE
+hi CursorLine cterm=NONE
 
 hi CursorLineNr term=bold
 hi CursorLineNr cterm=bold ctermfg=magenta
