@@ -6,6 +6,7 @@ set vdir=$HOME/.vim/views//
 set wildmenu
 set number
 set nowrapscan
+set showcmd
 
 set noautoindent
 set expandtab

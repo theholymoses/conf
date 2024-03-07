@@ -17,6 +17,7 @@ alias sxiv='sxiv -fpta'
 alias sxivr='sxiv -r'
 alias bshrc='vim ~/.bashrc && source ~/.bashrc'
 alias sn='shutdown now'
+alias gdb='gdb -q --tui'
 
 ######################################## sound
 function pmg {
@@ -30,7 +31,7 @@ function pms {
 ######################################## other
 function vman {
   if [ $# -ne 0 ]; then
-    vim -MR +":Man $@" +"wincmd j" +":q!"
+    vim -MR +":Man $@" +":set number" +"wincmd j" +":q!"
   fi
 }
 
