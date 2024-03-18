@@ -12,12 +12,13 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias mv='mv -n --debug'
 
-alias vi='vim'
+alias cl="printf '\ec'"
 alias sxiv='sxiv -fpta'
 alias sxivr='sxiv -r'
 alias bshrc='vim ~/.bashrc && source ~/.bashrc'
 alias sn='shutdown now'
-alias gdb='gdb -q --tui'
+alias gdb='gdb -q -tui'
+alias resolution='xrandr -s 1920x1080'
 
 ######################################## sound
 function pmg {
