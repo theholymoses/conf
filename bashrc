@@ -30,6 +30,10 @@ function pms {
 }
 
 ######################################## other
+CN="\e[0m"
+CC="\e[1;36m"
+CP="\e[1;35m"
+
 function vman {
   if [ $# -ne 0 ]; then
     vim -MR +":Man $@" +":set number" +"wincmd j" +":q!"

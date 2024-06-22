@@ -21,6 +21,8 @@ syntax off
 colorscheme custom
 set hlsearch
 
+set nowrap
+
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 :runtime! ftplugin/man.vim
