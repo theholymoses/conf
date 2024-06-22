@@ -1,0 +1,33 @@
+#! /bin/bash
+
+# Grep wrapper
+# $1 - regular expression
+# $2 - path
+# $3 - additional flags
+
+CN="\e[0m"
+CR="\e[1;31m"
+
+FLAGS="--color=auto -PTHrn"
+
+regex="$1"
+if [ -z "$regex" ]; then
+  echo -e "${CR}Provide regular expression${CN}"
+  exit 1
+fi
+
+path="${2:-'.'}"
+additional_flags="$3"
+
+if [[ $path =~ ^- ]]; then
+  additional_flags="$path"
+  path='.'
+fi
+
+cmd="grep $FLAGS $path -e '$regex'"
+
+if [ ! -z "$additional_flags" ]; then
+  cmd="$cmd $additional_flags"
+fi
+
+eval "$cmd"
