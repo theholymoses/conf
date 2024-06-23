@@ -1,6 +1,0 @@
-#! /bin/bash
-
-# ----------------------------------------
-# get volume
-
-pamixer --get-volume

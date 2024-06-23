@@ -1,8 +1,0 @@
-#! /bin/bash
-
-# ----------------------------------------
-# set volume to $1
-
-volume=${1:-"100"}
-
-pamixer --set-volume "$volume" --allow-boost
