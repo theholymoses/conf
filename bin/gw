@@ -1,33 +1,56 @@
-#! /bin/bash
+#! /usr/bin/perl
 
-# gw - Grep wrapper
-# $1 - regular expression
-# $2 - path
-# $3 - additional flags
+use strict;
+use warnings;
 
-CN="\e[0m"
-CR="\e[1;31m"
+use Getopt::Long;
 
-FLAGS="--color=auto -PTHrn"
+# ---------------------------------------- VARIABLES & SUBS
+my $CN = "\e[0m";
+my $CR = "\e[1;31m";
+my $CG = "\e[1;32m";
+my $CM = "\e[1;35m";
+my $CC = "\e[1;36m";
 
-regex="$1"
-if [ -z "$regex" ]; then
-  echo -e "${CR}Provide regular expression${CN}"
-  exit 1
-fi
+my $REGEX = "";
+my $PATH  = ".";
+my $ADDITIONAL_FLAGS = "";
 
-path="${2:-'.'}"
-additional_flags="$3"
+my $DEFAULT_FLAGS = "-PTHrn";
 
-if [[ $path =~ ^- ]]; then
-  additional_flags="$path"
-  path='.'
-fi
+my $PROGNAME = qx {basename "$0"};
+chomp $PROGNAME;
 
-cmd="grep $FLAGS $path -e '$regex'"
+sub usage
+{
+  my ($msg) = @_;
 
-if [ ! -z "$additional_flags" ]; then
-  cmd="$cmd $additional_flags"
-fi
+  print "${CR}WARNING:${CN} ${msg}\n\n" if ($msg);
 
-eval "$cmd"
+  print "${CC}${PROGNAME}${CN} -r=regex [-p=path -a=additional_flags]\n"  .
+        "Grep wrapper with default flags $DEFAULT_FLAGS\n"                .
+        "  -${CM}r${CN}=regex            -> regex\n"                      .
+        "  -${CM}p${CN}=path             -> path(default is .)\n"         .
+        "  -${CM}a${CN}=additional_flags -> additional flags for grep\n"  ;
+
+  exit (1);
+}
+
+# ---------------------------------------- MAIN CODE
+GetOptions ("-r=s" => \$REGEX,
+            "-p=s" => \$PATH,
+            "-a=s" => \$ADDITIONAL_FLAGS) ||
+usage ("Error parsing cmd arguments");
+usage ("Provide regex") if !length ($REGEX);
+
+if (length ($ADDITIONAL_FLAGS) && $ADDITIONAL_FLAGS !~ m{^-}) {
+  $ADDITIONAL_FLAGS = '-' . $ADDITIONAL_FLAGS;
+}
+
+my $cmd = "grep ${DEFAULT_FLAGS} '${PATH}' -e '$REGEX'";
+if ($ADDITIONAL_FLAGS) {
+  $cmd .= " $ADDITIONAL_FLAGS";
+}
+
+system ($cmd);
+
