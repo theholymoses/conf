@@ -20,6 +20,8 @@ my @files     = ();
 my $PROGNAME = qx {basename "$0"};
 chomp $PROGNAME;
 
+Getopt::Long::Configure ("bundling");
+
 # ---------------------------------------- SUBS DECLARATIONS
 # print usage & exit
 # $1 - error message to print before usage
@@ -31,18 +33,19 @@ sub rename_file;
 
 # iterate over an array of files & dirs
 # @1 filenames
+# $2 depth
 sub process_files;
 
 # ---------------------------------------- MAIN CODE
-GetOptions ("-r" => \$RECURSIVE,
-            "-d" => \$DO_RENAME) ||
+GetOptions ("r" => \$RECURSIVE,
+            "d" => \$DO_RENAME) ||
 usage ("Error processing arguments");
 
 @files = @ARGV;
 
 usage ("Provide files to work on") if $#files == -1;
 
-process_files (@files);
+process_files (@files, 0);
 
 # ---------------------------------------- SUBS DEFINITIONS
 sub usage
@@ -91,9 +94,10 @@ sub rename_file
 
 sub process_files
 {
+  my $depth = pop (@_);
   for my $file (@_)
   {
-    next if $file =~ m{^\.{1,2}$};
+    next if $file =~ m{^\.{1,2}$} && $depth > 0;
 
     if (-l $file || -f _) {
       rename_file ($file);
@@ -110,7 +114,7 @@ sub process_files
         my $current_dir = getcwd;
 
         chdir ($file);
-        process_files (readdir ($dh));
+        process_files (readdir ($dh), $depth + 1);
         chdir ($current_dir);
 
         closedir ($dh);
