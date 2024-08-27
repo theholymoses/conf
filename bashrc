@@ -22,3 +22,4 @@ alias sn='shutdown now'
 alias gdb='gdb -q -tui'
 alias resolution='xrandr -s 1920x1080'
 
+alias cal='cal -3'
