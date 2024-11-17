@@ -1,7 +1,0 @@
-#! /bin/bash
-
-# Use man via vim
-
-if [ $# -ne 0 ]; then
-  vim -MR +":Man $@" +":set number" +"wincmd j" +":q!"
-fi
