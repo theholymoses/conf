@@ -18,7 +18,7 @@ set matchpairs+=<:>
 set cursorline
 
 syntax off
-colorscheme custom
+colorscheme custom_cs
 set hlsearch
 
 set nowrap
