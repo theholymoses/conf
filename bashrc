@@ -3,7 +3,7 @@
 
 PS1='[\u@\h \W]\$ '
 
-alias bshrc='vi ~/.bashrc && source ~/.bashrc'
+alias bshrc='vim ~/.bashrc && source ~/.bashrc'
 
 alias cl="printf '\ec'"
 alias cal="cal -3"
@@ -20,6 +20,11 @@ alias grep="grep --color=auto"
 alias pacman="pacman --color=auto"
 
 alias makepkg="makepkg -sir"
+
+alias w3m="w3m google.com"
+
+alias pmg="pamixer --get-volume"
+alias pms="pamixer --allow-boost --set-volume"
 
 # init
 setfont cyr-sun16 -d

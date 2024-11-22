@@ -1,0 +1,94 @@
+#
+# Default twm configuration file; needs to be kept small to conserve string
+# space in systems whose compilers don't handle medium-sized strings.
+#
+# Sites should tailor this file, providing any extra title buttons, menus, etc.
+# that may be appropriate for their environment.  For example, if most of the
+# users were accustomed to uwm, the defaults could be set up not to decorate
+# any windows and to use meta-keys.
+#
+
+NoGrabServer
+RestartPreviousState
+DecorateTransients
+TitleFont       "8x16"
+ResizeFont      "8x16"
+MenuFont        "8x16"
+IconFont        "8x16"
+IconManagerFont "8x16"
+
+ButtonIndent    0
+BorderWidth     10
+ShowIconManager
+
+Color
+{
+    BorderColor             "darkcyan"
+    DefaultBackground       "black"
+    DefaultForeground       "white"
+    TitleBackground         "darkcyan"
+    TitleForeground         "white"
+    MenuBackground          "darkcyan"
+    MenuForeground          "white"
+    MenuBorderColor         "grey"
+    MenuTitleBackground     "grey"
+    MenuTitleForeground     "black"
+    IconBackground          "darkcyan"
+    IconForeground          "white"
+    IconBorderColor         "grey"
+    IconManagerBackground   "darkcyan"
+    IconManagerForeground   "white"
+}
+
+#
+# Define some useful functions for motion-based actions.
+#
+MoveDelta 3
+Function "move-or-lower"    { f.move f.deltastop f.lower }
+Function "move-or-raise"    { f.move f.deltastop f.raise }
+Function "move-or-iconify"  { f.move f.deltastop f.iconify }
+
+#
+# Set some useful bindings.  Sort of uwm-ish, sort of simple-button-ish
+#
+Button1 = : root : f.menu "defops"
+
+Button1 = m : window|icon : f.function "move-or-lower"
+Button2 = m : window|icon : f.iconify
+Button3 = m : window|icon : f.function "move-or-raise"
+
+Button1 = : title : f.function "move-or-raise"
+Button2 = : title : f.raiselower
+
+Button1 = : icon : f.function "move-or-iconify"
+Button2 = : icon : f.iconify
+
+Button1 = : iconmgr : f.iconify
+Button2 = : iconmgr : f.iconify
+
+#
+# And a menus with the usual things
+#
+menu "defops"
+{
+"twm"	          f.title
+"iconify"	      f.iconify
+"resize"	      f.resize
+"move"		      f.move
+"raise"		      f.raise
+"lower"		      f.lower
+""		          f.nop
+"focus"		      f.focus
+"unfocus"	      f.unfocus
+"show Iconmgr"	f.showiconmgr
+"hide Iconmgr"	f.hideiconmgr
+""		          f.nop
+"xterm"		      f.exec "exec xterm &"
+"firefox"       f.exec "exec firefox &"
+""		          f.nop
+"kill"		      f.destroy
+"delete"	      f.delete
+""		          f.nop
+"restart"	      f.restart
+"exit"		      f.quit
+}
