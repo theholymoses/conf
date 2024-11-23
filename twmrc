@@ -11,11 +11,11 @@
 NoGrabServer
 RestartPreviousState
 DecorateTransients
-TitleFont       "8x16"
-ResizeFont      "8x16"
-MenuFont        "8x16"
-IconFont        "8x16"
-IconManagerFont "8x16"
+TitleFont       "22"
+ResizeFont      "22"
+MenuFont        "22"
+IconFont        "22"
+IconManagerFont "22"
 
 ButtonIndent    0
 BorderWidth     10

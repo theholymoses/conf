@@ -1,3 +1,4 @@
 xrdb -load ~/.Xresources
 xset r rate 250 45
-exec twm
+setxkbmap us,ru -option 'grp:ctrl_shift_toggle'
+exec i3
