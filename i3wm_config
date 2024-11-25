@@ -139,3 +139,6 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+exec --no-startup-id feh --bg-scale ~/MEGA/pic/wp/1.jpg
+
