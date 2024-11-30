@@ -4,6 +4,7 @@
 PS1='[\u@\h \W]\$ '
 
 alias bshrc='vim ~/.bashrc && source ~/.bashrc'
+export EDITOR="/usr/bin/vim"
 
 alias cl="printf '\ec'"
 alias cal="cal -3"
@@ -27,12 +28,13 @@ alias makepkg="makepkg -sir"
 
 alias w3m="w3m google.com"
 
-alias pmg="pamixer --get-volume"
-alias pms="pamixer --allow-boost --set-volume"
-
 alias sxiv="sxiv -af"
 alias sxivr="sxiv -r"
 
+alias scrn="scrot -D :0 -d 5"
+alias mc="mc -d"
+
+alias q="shutdown now"
 
 # init
 setfont cyr-sun16 -d 2> /dev/null
