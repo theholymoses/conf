@@ -12,8 +12,6 @@ alias cal="cal -3"
 alias less="less -N --use-color"
 export LESSHISTFILE="/dev/null"
 
-export PYTHONSTARTUP="~/.pythonrc"
-
 alias rm="rm -iv"
 alias mv="mv -i --debug"
 alias cp="cp -i --debug"
@@ -31,10 +29,12 @@ alias w3m="w3m google.com"
 alias sxiv="sxiv -af"
 alias sxivr="sxiv -r"
 
-alias scrn="scrot -D :0 -d 5"
+alias scrn="scrot -D :0 -d 3 --format png -F ~/screen/%Y-%m-%d.png"
 alias mc="mc -d"
 
 alias q="shutdown now"
+
+alias conf="source ~/.xconfig"
 
 # init
 setfont cyr-sun16 -d 2> /dev/null

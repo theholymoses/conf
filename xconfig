@@ -1,0 +1,6 @@
+#! /bin/bash
+
+# not an rc file - source it
+
+xset r rate 200 45
+setxkbmap us,ru -option 'grp:ctrl_shift_toggle'
